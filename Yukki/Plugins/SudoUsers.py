@@ -128,7 +128,7 @@ async def userdel(_, message: Message):
 @app.on_message(filters.command("sudolist"))
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
-    text = "⭐️<u> **Owners:**</u>\n"
+    text = "💟<u> **MY KING :**</u>\n"
     sex = 0
     for x in OWNER_ID:
         try:
@@ -146,7 +146,7 @@ async def sudoers_list(_, message: Message):
                 user = user.first_name if not user.mention else user.mention
                 if smex == 0:
                     smex += 1
-                    text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                    text += "\n💟<u> **MACHAN LIST:**</u>\n"
                 sex += 1
                 text += f"{sex}➤ {user}\n"
             except Exception:
@@ -261,7 +261,7 @@ async def ban_globally(_, message):
             for chat in chats:
                 served_chats.append(int(chat["chat_id"]))
             m = await message.reply_text(
-                f"**Initializing Global Ban on {user.mention}**\n\nExpected Time : {len(served_chats)}"
+                f"**Initializing ━G⃣𝗕𝗔𝗡  O⃣𝗡   P⃣𝗥𝗢𝗚𝗥𝗘𝗦𝗦━ {user.mention}**\n\nExpected Time : {len(served_chats)}"
             )
             number_of_chats = 0
             for sex in served_chats:
@@ -274,7 +274,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass
             ban_text = f"""
-__**New Global Ban on {MUSIC_BOT_NAME}**__
+__**━New ━G⃣𝗕𝗔𝗡 O⃣𝗡 {MUSIC_BOT_NAME}**__
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user.mention}
@@ -296,15 +296,15 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
     mention = message.reply_to_message.from_user.mention
     sudoers = await get_sudoers()
     if user_id == from_user_id:
-        await message.reply_text("You want to block yourself? How Fool!")
+        await message.reply_text("MACHA NEE ENODA UYIR DA UNA EPDI BAN PANUVAN MACHA ")
     elif user_id == BOT_ID:
-        await message.reply_text("Should i block myself? Lmao Ded!")
+        await message.reply_text("NAAN EPDI MACHA UNA VITTU POVAN ")
     elif user_id in sudoers:
-        await message.reply_text("You want to block a sudo user? KIDXZ")
+        await message.reply_text("MACHA NEE YA SONATHU BAN PANA SOLI")
     else:
         is_gbanned = await is_gbanned_user(user_id)
         if is_gbanned:
-            await message.reply_text("Already Gbanned.")
+            await message.reply_text("━M⃣𝗔𝗖𝗛𝗔   G⃣𝗕𝗔𝗡   P⃣𝗔𝗡𝗜𝗧𝗔𝗡━")
         else:
             await add_gban_user(user_id)
             served_chats = []
@@ -312,7 +312,7 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             for chat in chats:
                 served_chats.append(int(chat["chat_id"]))
             m = await message.reply_text(
-                f"**Initializing Gobal Ban on {mention}**\n\nExpected Time : {len(served_chats)}"
+                f"**Initializing ━G⃣𝗕𝗔𝗡  O⃣𝗡   P⃣𝗥𝗢𝗚𝗥𝗘𝗦𝗦━ on {mention}**\n\nExpected Time : {len(served_chats)}"
             )
             number_of_chats = 0
             for sex in served_chats:
@@ -358,15 +358,15 @@ async def unban_globally(_, message):
         from_user = message.from_user
         sudoers = await get_sudoers()
         if user.id == from_user.id:
-            await message.reply_text("You want to unblock yourself?")
+            await message.reply_text("MACHAN NEE EPODA BAN ANA NEE ENODA UYIR MACHA UNKU THERIYTHA DA?")
         elif user.id == BOT_ID:
-            await message.reply_text("Should i unblock myself?")
+            await message.reply_text("MACHA IPDI PANATHA NAAN UNODA UYIR MACHA ")
         elif user.id in sudoers:
-            await message.reply_text("Sudo users can't be blocked/unblocked.")
+            await message.reply_text("MACHAN'S LA BAN LA PANA MUDIYATHU")
         else:
             is_gbanned = await is_gbanned_user(user.id)
             if not is_gbanned:
-                await message.reply_text("He's already free, why bully him?")
+                await message.reply_text("NEE EPODA BAN ANA LUSU ALREADY NEE INGA THANA IRUKA😂😂😂😂😂😂")
             else:
                 await remove_gban_user(user.id)
                 await message.reply_text(f"Ungbanned!")
@@ -564,4 +564,4 @@ async def clean(_, message):
     shutil.rmtree(dir1)
     os.mkdir(dir)
     os.mkdir(dir1)
-    await message.reply_text("Successfully cleaned all **temp** dir(s)!")
+    await message.reply_text("MACHA FILES CLEAN PANITAN DA NEE FREE YA VIDU ")
